@@ -44,4 +44,3 @@ artifacts:
     - '**/*'
   name: panong-apply-$(date +%Y-%m-%d)
   discard-paths: no
-  
