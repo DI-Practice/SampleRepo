@@ -32,7 +32,7 @@ phases:
               #aws s3 cp s3://demotestlambda-tfstates/${environment}_Lambda_final/terraform.tfstate .
               #cat terraform.tfstate;
               #ls -la;
-              terraform destroy cisco-terraform-statefile-bucket/demo-mvp0-dev-Deploy/files/terraform.tfstate;
+              terraform destroy s3://cisco-terraform-statefile-bucket/demo-mvp0-dev-Deploy/files/terraform.tfstate --auto-approve;
               #terraform apply ${environment}_Lambda_final;
               #aws s3 cp terraform.tfstate s3://demotestlambda-tfstates/${environment}_Lambda_final/ 
               #zip -r ${environment}_Lambda_final.zip ${environment}_Lambda_final; 
