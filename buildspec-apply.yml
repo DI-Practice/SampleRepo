@@ -29,17 +29,16 @@ phases:
             - cd ${CODEBUILD_SRC_DIR}/${TF_FILES}
             - |
               echo "Creating Lambda Modules ..."; 
-              aws s3 cp s3://demotestlambda-tfstates/${environment}_Lambda_final/terraform.tfstate .
-              terraform init;
-              cat terraform.tfstate;
-              ls -la;
-              terraform destroy --auto-approve;
+              #aws s3 cp s3://demotestlambda-tfstates/${environment}_Lambda_final/terraform.tfstate .
+              #cat terraform.tfstate;
+              #ls -la;
+              terraform destroy cisco-terraform-statefile-bucket/demo-mvp0-dev-Deploy/files/terraform.tfstate;
               #terraform apply ${environment}_Lambda_final;
               #aws s3 cp terraform.tfstate s3://demotestlambda-tfstates/${environment}_Lambda_final/ 
               #zip -r ${environment}_Lambda_final.zip ${environment}_Lambda_final; 
     post_build:
         commands:
-           - echo " Completed Terraform Apply phase... "
+           - echo "Completed Terraform Apply phase... "
            - echo Terraform apply completed on `date`
 artifacts:
   files:
