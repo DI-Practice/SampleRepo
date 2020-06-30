@@ -169,7 +169,7 @@ resource "aws_instance" "instance" {
               #! /bin/bash
               sudo su -
               yum update -y
-              yum install -y httpd24 php56 php56-mysqlnd
+              yum install -y httpd
               yum install unzip -y
               chmod 777 /var/www/
               curl https://testrgupload.s3.ap-south-1.amazonaws.com/dist.zip --output dist.zip
