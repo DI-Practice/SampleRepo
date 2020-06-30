@@ -167,16 +167,15 @@ resource "aws_instance" "instance" {
   }
   user_data = <<-EOF
               #! /bin/bash
-              sudo su -
-              yum update -y
-              yum install -y httpd
-              yum install unzip -y
-              chmod 777 /var/www/
+              sudo yum update -y
+              sudo yum install -y httpd
+              sudo yum install unzip -y
+              sudo chmod 777 /var/www/
               curl https://testrgupload.s3.ap-south-1.amazonaws.com/dist.zip --output dist.zip
               unzip dist.zip 
-              cp -rf dist/cisco/* /var/www/html/
-              service httpd start
-              chkconfig httpd on
+              sudo cp -rf dist/cisco/* /var/www/html/
+              sudo service httpd start
+              sudo chkconfig httpd on
               EOF
 
 }
