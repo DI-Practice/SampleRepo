@@ -1,16 +1,22 @@
+variable "account_id" {
+  type = string
+}
 variable "aws_region" {
-  type    = "string"
-  default = "us-east-1"
+  type = string
 }
 
-variable "name_prefix" {
-  type    = "string"
+variable "ec2_key" {
+  type = string
 }
 
-variable "name_suffix" {
-  type    = "string"
+variable "bucket_name" {
+  type = string
 }
 
-variable "environment" {
-  type    = "string"
+variable "domain_name" {
+  type = string
 }
+
+
+
+
