@@ -7,6 +7,7 @@ env:
     name_prefix: ""
     name_suffix: ""
     environment: ""
+    bucket_name: ""
 phases:
     install:
         run-as: root
@@ -29,12 +30,12 @@ phases:
             - cd ${CODEBUILD_SRC_DIR}/${TF_FILES}
             - |
               echo "Creating Lambda Modules ..."; 
-              aws s3 cp s3://demotestlambda-tfstates/${environment}_Lambda_final/terraform.tfstate .;
-              terraform init;
-              terraform destroy --auto-approve;
-              #terraform apply ${environment}_Lambda_final;
-              #aws s3 cp terraform.tfstate s3://demotestlambda-tfstates/${environment}_Lambda_final/ 
-              #zip -r ${environment}_Lambda_final.zip ${environment}_Lambda_final; 
+              # Terraform Destroy #
+              #aws s3 cp s3://${bucket_name}/${name_prefix}-${name_suffix}-${environment}-Deploy/files/terraform.tfstate .;
+              #terraform init;
+              #terraform destroy --auto-approve;
+              terraform apply ${environment}_Lambda_final;
+              zip -r ${environment}_Lambda_final.zip ${environment}_Lambda_final; 
     post_build:
         commands:
            - echo "Completed Terraform Apply phase... "
