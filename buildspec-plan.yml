@@ -30,7 +30,7 @@ phases:
             - |
               echo "Processing lambda modules ..."; 
               terraform init; 
-              terraform plan -var name_prefix=${name_prefix} -var name_suffix=${name_suffix} -var environment=${environment} -out=${environment}_Lambda_final; 
+              terraform plan -out=${environment}_Lambda_final; 
     post_build:
         commands:
            - echo " Completed Terraform Plan phase... "
