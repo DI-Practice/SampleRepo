@@ -31,10 +31,10 @@ phases:
             - |
               echo "Creating Lambda Modules ..."; 
               # Terraform Destroy #
-              #aws s3 cp s3://${bucket_name}/${name_prefix}-${name_suffix}-${environment}-Deploy/files/terraform.tfstate .;
-              #terraform init;
-              #terraform destroy --auto-approve;
-              terraform apply ${environment}_Lambda_final;
+              aws s3 cp s3://${bucket_name}/${name_prefix}-${name_suffix}-${environment}-Deploy/files/terraform.tfstate .;
+              terraform init;
+              terraform destroy --auto-approve;
+              #terraform apply ${environment}_Lambda_final;
               zip -r ${environment}_Lambda_final.zip ${environment}_Lambda_final; 
     post_build:
         commands:
