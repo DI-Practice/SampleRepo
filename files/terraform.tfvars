@@ -1,5 +1,0 @@
-account_id = "072793729805"
-aws_region = "us-east-1"
-ec2_key = "webapp_key"
-bucket_name = "s3-imagebucket-270620"
-domain_name = "webapp.cloudbrillio.com"
